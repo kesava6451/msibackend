@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "/AcPtgQvHhvLSrajzaSKMCRAfoQHnwM2S0ucF0aQHZY=",
+  "Source": "msibackend",
+  "BasePath": "_content/msibackend",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

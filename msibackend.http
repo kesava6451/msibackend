@@ -1,0 +1,6 @@
+@msibackend_HostAddress = http://localhost:5098
+
+GET {{msibackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

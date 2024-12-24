@@ -1,0 +1,34 @@
+name: Validate Branch Name
+
+on:
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  check-branch-name:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Check branch name
+        id: check_jira_id
+        run: |
+          BRANCH_NAME="${{ github.head_ref }}"
+          echo "Branch name: $BRANCH_NAME"
+          BRANCH_PATTERN='^(develop|master|release/[0-9]{8}|(feature|bugfix|hotfix|release|docs|testaut|chore)/(EVP|RAVE|PS)-[0-9]+(/[a-zA-Z0-9_-]+)?)$'
+
+          # Regex pattern for JIRA ID
+          if [[ $BRANCH_NAME =~ $BRANCH_PATTERN ]]; then
+            echo "Branch name follows the naming convention"
+          else
+            echo "Branch name does not follow the naming convention"
+            echo " EXAMPLES: feature/JIRA-123[/optional-short-description], bugfix/JIRA-123[/optional-short-description] "
+            exit 1;
+          fi
+
+      - name: Success message
+        if: success()
+        run: echo "Branch name follows the naming convention."

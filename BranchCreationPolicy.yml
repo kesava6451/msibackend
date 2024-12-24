@@ -1,4 +1,4 @@
-name: Validate Branch Name
+name: Branch Creation Policy
 
 on:
   pull_request:

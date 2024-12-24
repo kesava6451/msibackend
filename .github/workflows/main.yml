@@ -1,4 +1,4 @@
-name: Branch Creation Policy
+name: Branch Creation Polic
 
 on:
   pull_request:
